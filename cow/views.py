@@ -5,22 +5,35 @@ from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
-
+from .models import Sensor
 
 # Create your views here.
-# class CowList(ListView):
-#     model = Neck_sensor
-#     paginate_by = 5
-#     template_name = 'cow_page/base.html'
 
 def cow (request):
     return render(
         request,
-        'cow_page/base.html'
+        'cow/base.html'
     )
 
 def charts (request):
     return render(
         request,
-        'cow_page/charts.html'
+        'cow/charts.html'
+    )
+
+def tables (request):
+    return render(
+        request,
+        'cow/tables.html'
+    )
+
+def sensorTables (request):
+    sensors = Sensor.objects.order_by('-pk')[:100]
+
+    return render(
+        request,
+        'cow/sensor_tables.html',
+        {
+            'sensors':sensors,
+        }
     )

@@ -3,7 +3,7 @@ Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSyste
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
 // Area Chart Example
-var ctx = document.getElementById("myAreaChart");
+var ctx = document.getElementById("SensorAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -20,7 +20,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 50,
       pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
+      data: [1111, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
     }],
   },
   options: {

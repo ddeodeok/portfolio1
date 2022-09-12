@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cow_page',
+    'cow',
     'sensor_page',
     'single_pages',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
