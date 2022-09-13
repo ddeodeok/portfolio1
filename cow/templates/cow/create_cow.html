@@ -1,0 +1,124 @@
+
+{% extends 'cow/base.html' %}
+{% load static %}
+
+{% block main_area %}
+{% include 'cow/navbar.html' %} 
+<body>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">소 객체 추가</h1>
+                <div class='row'>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">소 태그번호</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <span id="passwordHelpInline" class="form-text">
+                                Must be 8-20 characters long.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">그룹 명</label>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>송아지 농장</option>
+                                <option value="1">제1사육장</option>
+                                <option value="2">제2사육장</option>
+                                <option value="3">제3사육장</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">센서-id</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <span id="passwordHelpInline" class="form-text">
+                                Must be 8-20 characters long.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">나이(일령)</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <span id="passwordHelpInline" class="form-text">
+                                Must be 8-20 characters long.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">상태</label>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>육성 우</option>
+                                <option value="1">임신</option>
+                                <option value="2">수정완료</option>
+                                <option value="3">발정</option>
+                                <option value="3">최근분만 우</option>
+                                <option value="3">미성숙 우</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">공태일</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <span id="passwordHelpInline" class="form-text">
+                                Must be 8-20 characters long.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">분만 횟수</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <span id="passwordHelpInline" class="form-text">
+                                Must be 8-20 characters long.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-2">
+                            <label for="inputPassword6" class="col-form-label">출생 일</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                        </div>
+                        <div class="col-auto">
+                            <span id="passwordHelpInline" class="form-text">
+                                Must be 8-20 characters long.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+{% endblock %}

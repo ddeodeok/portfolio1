@@ -8,5 +8,6 @@ urlpatterns = [
     path('charts/', views.charts),
     path('tables/', views.tables),
     path('sensor_tables/', views.sensorTables),
+    path('create_post/', views.CowCreate.as_view())
 
 ]

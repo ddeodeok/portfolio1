@@ -50,6 +50,7 @@ class Cow(models.Model):
     empyt_days = models.IntegerField()
     birthday = models.DateTimeField()
 
+    sensorID = models.ForeignKey(Sensor,on_delete=models.CASCADE, null=True, blank=True)
     childbirth_id = models.ForeignKey(Pre_childbirth, on_delete=models.CASCADE, null=True, blank=True)
     estrus_id = models.ForeignKey(Estrus, on_delete=models.CASCADE, null=True, blank=True)
 

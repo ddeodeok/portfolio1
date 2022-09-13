@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'cow',
     'sensor_page',
     'single_pages',
-    'import_export',
+    
 ]
 
 MIDDLEWARE = [

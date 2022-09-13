@@ -5,14 +5,14 @@ from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
-from .models import Sensor
+from .models import Cow, Sensor
 
 # Create your views here.
 
 def cow (request):
     return render(
         request,
-        'cow/base.html'
+        'cow/main.html'
     )
 
 def charts (request):
@@ -37,3 +37,8 @@ def sensorTables (request):
             'sensors':sensors,
         }
     )
+
+class CowCreate(CreateView):
+    model = Cow
+    fields=['cow_num','group','sensorID','age','stats','postpartal_days','empyt_days','birthday']
+    template_name = 'cow/create_cow.html'
