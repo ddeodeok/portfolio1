@@ -40,5 +40,9 @@ def sensorTables (request):
 
 class CowCreate(CreateView):
     model = Cow
-    fields=['cow_num','group','sensorID','age','stats','postpartal_days','empyt_days','birthday']
+    fields=['cow_num','group','sensorID','age','stats','empyt_days','carving_num','birthday']
     template_name = 'cow/create_cow.html'
+
+    def form_valid(self,form):
+        response = super(CowCreate, self).form_valid(form)
+        return response

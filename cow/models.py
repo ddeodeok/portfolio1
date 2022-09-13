@@ -46,8 +46,7 @@ class Cow(models.Model):
     stats = models.CharField(max_length=50)
     carving_num = models.IntegerField(default= 0)
     age = models.IntegerField()
-    postpartal_days = models.IntegerField(blank=True, null=True)
-    empyt_days = models.IntegerField()
+    empyt_days = models.IntegerField(blank=True, null=True)
     birthday = models.DateTimeField()
 
     sensorID = models.ForeignKey(Sensor,on_delete=models.CASCADE, null=True, blank=True)

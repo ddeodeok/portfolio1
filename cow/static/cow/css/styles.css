@@ -4922,10 +4922,11 @@ textarea.form-control-lg {
 
 .alert {
   position: relative;
-  padding: 1rem 1rem;
-  margin-bottom: 1rem;
+  /* padding: 1rem 1rem; */
+  /* margin-bottom: 1rem; */
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  text-align:center
 }
 
 .alert-heading {
