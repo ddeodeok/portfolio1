@@ -40,11 +40,8 @@ def sensorTables (request):
 
 class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Cow
-    fields=['cow_num','group','sensorID','age','stats','empyt_days','carving_num','birthday']
     template_name = 'cow/create_cow.html'
-
-    def test_func(self):
-        return self.request.user.is_superuser or self.request.user.is_staff
+    fields=['cow_num','group','sensorID','age','stats','empyt_days','carving_num','birthday']
 
     def form_valid(self,form):
         current_user = self.request.user
@@ -52,6 +49,28 @@ class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
             form.instance.author = current_user
             return super(CowCreate, self).form_valid(form)
         else:
-            return redirect('/cow/')
+            return redirect('/coco/')
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.is_staff
+
+
+# def create_post(request):
+#     return render(request, 'cow/create_cow.html')
+
+# def create(request, ) :
+#     if(request.method == 'POST'):
+#         post = Cow()
+
+#         post.cow_num = request.POST.cow_num
+
+#         post.save()
+#     return redirect('cow/create_cow.html')
+
+
+
+
+
+        
+
 
         
