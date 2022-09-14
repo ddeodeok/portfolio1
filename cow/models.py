@@ -41,6 +41,7 @@ class Estrus(models.Model):
 
 
 class Cow(models.Model):
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cow_num = models.CharField(max_length=50,unique=True)
     group = models.CharField(max_length=50,default='new_cow')
     stats = models.CharField(max_length=50)
