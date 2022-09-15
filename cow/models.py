@@ -46,12 +46,14 @@ class Cow(models.Model):
     group = models.CharField(max_length=50,default='new_cow')
     stats = models.CharField(max_length=50)
     carving_num = models.IntegerField(default= 0)
-    age = models.IntegerField(default= 1)
+    age = models.IntegerField()
     empyt_days = models.IntegerField(blank=True, null=True)
-    birthday = models.CharField(max_length=50,blank=True, null=True)
+    birthday = models.DateTimeField()
 
     sensorID = models.ForeignKey(Sensor,on_delete=models.CASCADE, null=True, blank=True)
-   
+    childbirth_id = models.ForeignKey(Pre_childbirth, on_delete=models.CASCADE, null=True, blank=True)
+    estrus_id = models.ForeignKey(Estrus, on_delete=models.CASCADE, null=True, blank=True)
+
 
 class Event(models.Model):
     event_time = models.DateTimeField()

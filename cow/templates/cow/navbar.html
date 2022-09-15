@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="/"><i class="file:///C:/Users/admin/Downloads/hat-cowboy-solid.svg"></i>&nbp;&nbp;CAKD7 목장</a>
+    <a class="navbar-brand ps-3" href="/"><i class="fa-duotone fa-user-cowboy"></i>&nbp;&nbp;CAKD7 목장</a>
     <!-- Sidebar dropdown button-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search button-->
@@ -43,24 +43,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         객체 테이블
                     </a>
-                    <!-- Navbar Sensor and aler -->
-                    <!-- sensor-->
-                    <div class="sb-sidenav-menu-heading">설정</div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                        </nav>
-                    </div>
-                    <!-- alert -->
+                    <!-- cow mange navbar -->
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                        객체 관리
+                        객체 분류
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
@@ -74,7 +60,7 @@
                                     <a class="nav-link" href="login.html">임신중</a>
                                     <a class="nav-link" href="register.html">발정 객체</a>
                                     <a class="nav-link" href="password.html">수정 대기</a>
-                                    <a class="nav-link" href="/tables_calf/">송아지</a>
+                                    <a class="nav-link" href="password.html">송아지</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -91,6 +77,29 @@
                             </div>
                         </nav>
                     </div>
+                    
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Layouts
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                            <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                        </nav>
+                    </div>
+                    <!-- Navbar Sensor and aler -->
+                    <!-- sensor-->
+                    <div class="sb-sidenav-menu-heading">설정</div>
+                    <a class="nav-link" href="/sensor_tables/">
+                        <div class="sb-nav-link-icon"><i class="fa-duotone fa-sensor-on"></i></i></div>
+                        센서 테이블
+                    </a>
+                    <a class="nav-link" href="/tables/">
+                        <div class="sb-nav-link-icon"><i class="bi bi-bell"></i></div>
+                        알람 설정
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
