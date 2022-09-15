@@ -40,6 +40,12 @@ def sensorTables (request):
         }
     )
 
+def calf (request):
+    return render(
+        request,
+        'cow/tables_calf.html'
+    )
+
 class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     
     model = Cow
