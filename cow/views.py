@@ -38,6 +38,11 @@ def sensorTables (request):
         }
     )
 
+def calf (request):
+    return render(
+        request,
+        'cow/tables_calf.html'
+    )
 
 def estrus (request):
     return render(
