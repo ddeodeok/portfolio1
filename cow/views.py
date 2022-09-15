@@ -39,6 +39,24 @@ def sensorTables (request):
     )
 
 
+def estrus (request):
+    return render(
+        request,
+        'cow/tables_estrus.html'
+    )
+
+def pregnant (request):
+    return render(
+        request,
+        'cow/tables_pregnant.html'
+    )
+
+def rearingcalf (request):
+    return render(
+        request,
+        'cow/tables_rearingcalf.html'
+    )
+
 class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Cow
     template_name = 'cow/create_cow.html'
