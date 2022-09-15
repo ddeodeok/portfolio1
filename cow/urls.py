@@ -9,7 +9,7 @@ urlpatterns = [
     path('tables/', views.tables),
     path('sensor_tables/', views.sensorTables),
     path('create_post/', views.CowCreate.as_view()),
-    path('post/', views.PostCreate.as_view()),
+   
     # path('create_post/', views.create_post, name='create_post'),
     # path('create/', views.create, name='create'),
 

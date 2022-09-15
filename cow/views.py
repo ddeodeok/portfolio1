@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
-from .models import Cow, Sensor, Post
+from .models import Cow, Sensor
 import logging
 
 
@@ -87,11 +87,6 @@ class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 #         post.save()
 #     return redirect('cow/create_cow.html')
-
-class PostCreate(CreateView):
-    model = Post
-    template_name = 'cow/post_list.html'
-    fields=['text','cow_num','group','stats','carving_num','age','empyt_days','birthday','sensorID','childbirth_id','estrus_id']
 
 
 
