@@ -8,7 +8,7 @@ from markdownx.utils import markdown
 import os
 from distutils.command.upload import upload
 
-class SensorSN(models.Model):
+class SensorID(models.Model):
     sensor_Serial = models.CharField(max_length=50, unique=True)
     sensor_ver = models.CharField(max_length=50)
 
@@ -17,7 +17,7 @@ class Sensor(models.Model):
     _id = models.CharField(max_length=50)
     sensor_ver = models.CharField(max_length=50)
     msg_ver = models.IntegerField()
-    sensorID = models.CharField(max_length=50)
+    sensor_ID = models.CharField(max_length=50)
     macAddr = models.CharField(max_length=50)
     battery = models.FloatField()
     temp = models.FloatField()
@@ -31,8 +31,11 @@ class Sensor(models.Model):
     packetnum = models.IntegerField()
     kr_time =  models.CharField(max_length=50)
 
+    SensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
+    
     def __str__(self):
-        return f'[{self.pk}]{self.sensorID}'
+        return f'[{self.pk}]{self.sensor_ID}'
+
 
 
 class Pre_childbirth(models.Model):
@@ -57,14 +60,10 @@ class Cow(models.Model):
     empyt_days = models.IntegerField(blank=True, null=True)
     birthday = models.CharField(max_length=50,blank=True, null=True)
 
-    sensorID = models.ForeignKey("Sensor", on_delete=models.SET_NULL, null=True, db_column="sensorID")
-    # childbirth_id = models.ForeignKey(Pre_childbirth, on_delete=models.CASCADE, null=True, blank=True)
-    # estrus_id = models.ForeignKey(Estrus, on_delete=models.CASCADE, null=True, blank=True)
-
+    SensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
         return f'[{self.pk}]{self.cow_num}'
-
 
 
 class Event(models.Model):
