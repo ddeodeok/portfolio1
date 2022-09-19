@@ -62,7 +62,7 @@ class Cow(models.Model):
     empyt_days = models.IntegerField(blank=True, null=True)
     birthday = models.CharField(max_length=50,blank=True, null=True)
 
-    SensorID = models.ForeignKey("Sensor", on_delete=models.SET_NULL, null=True)
+    SensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
         return f'[{self.pk}]{self.cow_num}'
