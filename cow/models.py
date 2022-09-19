@@ -9,8 +9,11 @@ import os
 from distutils.command.upload import upload
 
 class SensorID(models.Model):
-    sensor_Serial = models.CharField(max_length=50, unique=True)
+    sensor_serial = models.CharField(max_length=50, unique=True)
     sensor_ver = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'[{self.pk}]{self.sensor_serial}'
 
 
 class Sensor(models.Model):
@@ -31,7 +34,6 @@ class Sensor(models.Model):
     packetnum = models.IntegerField()
     kr_time =  models.CharField(max_length=50)
 
-    SensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
         return f'[{self.pk}]{self.sensor_ID}'
@@ -60,7 +62,7 @@ class Cow(models.Model):
     empyt_days = models.IntegerField(blank=True, null=True)
     birthday = models.CharField(max_length=50,blank=True, null=True)
 
-    SensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
+    SensorID = models.ForeignKey("Sensor", on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
         return f'[{self.pk}]{self.cow_num}'
