@@ -54,6 +54,43 @@ def calf (request):
         }
     )
 
+def farm1 (request):
+    farm1s = Cow.objects.filter(group__contains='first')
+
+    return render(
+        request,
+        'cow/tables_farm1.html',
+        {
+            'farm1s':farm1s,
+        }
+    )
+
+def farm2 (request):
+    farm2s = Cow.objects.filter(group__contains='second')
+
+    return render(
+        request,
+        'cow/tables_farm2.html',
+        {
+            'farm2s':farm2s,
+        }
+    )
+
+def farm3 (request):
+    farm3s = Cow.objects.filter(group__contains='third')
+
+    return render(
+        request,
+        'cow/tables_farm3.html',
+        {
+            'farm3s':farm3s,
+        }
+    )
+
+
+
+
+
 def estrus (request):
     return render(
         request,

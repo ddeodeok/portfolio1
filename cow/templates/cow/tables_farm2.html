@@ -57,16 +57,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for calf in calfs %}
+                                        {% for farm2 in farm2s %}
                                         <tr>
-                                            <td>{{ calf.cow_num }}</td>
-                                            <td>{{ calf.group }}</td>
-                                            <td>{{ calf.sensorID }}</td>
-                                            <td>{{ calf.age }}</td>
-                                            <td>{{ calf.stats }}</td>
-                                            <td>{{ calf.carving_num}}</td>
-                                            <td>{{ calf.empyt_days}}</td>
-                                            <td>{{ calf.birthday}}</td>
+                                            <td>{{ farm2.cow_num }}</td>
+                                            <td>{{ farm2.group }}</td>
+                                            <td>{{ farm2.sensorID }}</td>
+                                            <td>{{ farm2.age }}</td>
+                                            <td>{{ farm2.stats }}</td>
+                                            <td>{{ farm2.carving_num}}</td>
+                                            <td>{{ farm2.empyt_days}}</td>
+                                            <td>{{ farm2.birthday}}</td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
