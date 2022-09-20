@@ -6,6 +6,7 @@ from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
 from .models import Cow, Sensor
+import logging
 
 # Create your views here.
 
@@ -21,10 +22,14 @@ def charts (request):
         'cow/charts.html'
     )
 
-def tables (request):
+def cowtables (request):
+    cows = Cow.objects.order_by('-pk')[:100]
     return render(
         request,
-        'cow/tables.html'
+        'cow/tables.html',
+        {
+            'cows':cows,
+        }
     )
 
 def sensorTables (request):
@@ -39,9 +44,14 @@ def sensorTables (request):
     )
 
 def calf (request):
+    calfs = Cow.objects.filter(group__contains='calf')
+
     return render(
         request,
-        'cow/tables_calf.html'
+        'cow/tables_calf.html',
+        {
+            'calfs':calfs,
+        }
     )
 
 def estrus (request):
@@ -64,16 +74,25 @@ def rearingcalf (request):
 
 class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Cow
+    
     template_name = 'cow/create_cow.html'
-    fields=['cow_num','group','sensorID','age','stats','empyt_days','carving_num','birthday']
+    fields=['cow_num','group','stats','carving_num','age','empyt_days','birthday','sensorID']
 
     def form_valid(self,form):
+        logger = logging.getLogger("main")	# Logger 선언
+        stream_hander = logging.StreamHandler()	# Logger의 output 방법 선언
+        logger.addHandler(stream_hander)	# Logger의 output 등록
+
+        logger.setLevel(logging.DEBUG)
+        logging.warning("조심하자!")
+        logging.error("오류 발생")
+        logging.critical(form)
         current_user = self.request.user
         if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
             form.instance.author = current_user
             return super(CowCreate, self).form_valid(form)
         else:
-            return redirect('/coco/')
+            return redirect('/login/')
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.is_staff
 

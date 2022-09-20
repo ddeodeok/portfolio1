@@ -32,7 +32,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                센서 목록
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -43,13 +43,13 @@
                                             <th>hpa</th>
                                             <th>time</th>
                                             <th>battery</th>
-                                            <th style ="width:16%">sensor_ver</th>
+                                            <th>sensor_ver</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for sensor in sensors %}
                                         <tr>
-                                            <td>{{ sensor.sensorID }}</td>
+                                            <td>{{ sensor.sensor_ID }}</td>
                                             <td>{{ sensor.temp }}</td>
                                             <td>{{ sensor.hpa }}</td>
                                             <td>{{ sensor.time }}</td>

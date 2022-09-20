@@ -6,7 +6,7 @@ urlpatterns = [
     
     path('', views.cow),
     path('charts/', views.charts),
-    path('tables/', views.tables),
+    path('tables/', views.cowtables),
     path('sensor_tables/', views.sensorTables),
     path('create_post/', views.CowCreate.as_view()),
     path('tables_calf/', views.calf),
