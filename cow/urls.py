@@ -16,6 +16,7 @@ urlpatterns = [
     path('tables_farm1/', views.farm1),
     path('tables_farm2/', views.farm2),
     path('tables_farm3/', views.farm3),
+    path('<int:pk>/', views.cow_detail)
     # path('create_post/', views.create_post, name='create_post'),
     # path('create/', views.create, name='create'),
 

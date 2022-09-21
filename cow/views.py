@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -6,6 +7,8 @@ from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
 from .models import Cow, Sensor
+from django.http import HttpResponse
+
 import logging
 
 # Create your views here.
@@ -113,17 +116,9 @@ class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Cow
     
     template_name = 'cow/create_cow.html'
-    fields=['cow_num','group','stats','carving_num','age','empyt_days','birthday','sensorID']
+    fields=['cow_num','group','sensorID','age','stats','empyt_days','carving_num','birthday']
 
     def form_valid(self,form):
-        logger = logging.getLogger("main")	# Logger 선언
-        stream_hander = logging.StreamHandler()	# Logger의 output 방법 선언
-        logger.addHandler(stream_hander)	# Logger의 output 등록
-
-        logger.setLevel(logging.DEBUG)
-        logging.warning("조심하자!")
-        logging.error("오류 발생")
-        logging.critical(form)
         current_user = self.request.user
         if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
             form.instance.author = current_user
@@ -133,6 +128,26 @@ class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.is_staff
 
+# class CowDetail (DetailView):
+#     model = Cow
+#     template_name = 'cow/cow_detail.html'
+    
+#     def get(self, request):
+#         queryset = Cow.objects.all()
+#         return HTTPResponse({ 
+#             'cowds': queryset
+#         })
+   
+
+def cow_detail (request):
+    cowds = Cow.objects.order_by()
+    return render(
+        request,
+        'cow/cow_detail.html',
+        {
+            'cowds':cowds,
+        }
+    )
 
 # def create_post(request):
 #     return render(request, 'cow/create_cow.html')
