@@ -6,6 +6,7 @@ from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
 from .models import Cow, Sensor
+import logging
 
 # Create your views here.
 
@@ -21,10 +22,14 @@ def charts (request):
         'cow/charts.html'
     )
 
-def tables (request):
+def cowtables (request):
+    cows = Cow.objects.order_by('-pk')[:100]
     return render(
         request,
-        'cow/tables.html'
+        'cow/tables.html',
+        {
+            'cows':cows,
+        }
     )
 
 def sensorTables (request):
@@ -39,10 +44,52 @@ def sensorTables (request):
     )
 
 def calf (request):
+    calfs = Cow.objects.filter(group__contains='calf')
+
     return render(
         request,
-        'cow/tables_calf.html'
+        'cow/tables_calf.html',
+        {
+            'calfs':calfs,
+        }
     )
+
+def farm1 (request):
+    farm1s = Cow.objects.filter(group__contains='first')
+
+    return render(
+        request,
+        'cow/tables_farm1.html',
+        {
+            'farm1s':farm1s,
+        }
+    )
+
+def farm2 (request):
+    farm2s = Cow.objects.filter(group__contains='second')
+
+    return render(
+        request,
+        'cow/tables_farm2.html',
+        {
+            'farm2s':farm2s,
+        }
+    )
+
+def farm3 (request):
+    farm3s = Cow.objects.filter(group__contains='third')
+
+    return render(
+        request,
+        'cow/tables_farm3.html',
+        {
+            'farm3s':farm3s,
+        }
+    )
+
+
+
+
 
 def estrus (request):
     return render(
@@ -64,8 +111,9 @@ def rearingcalf (request):
 
 class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Cow
+    
     template_name = 'cow/create_cow.html'
-    fields=['cow_num','group','sensorID','age','stats','empyt_days','carving_num','birthday']
+    fields=['cow_num','group','SensorID_id','age','stats','empyt_days','carving_num','birthday']
 
     def form_valid(self,form):
         current_user = self.request.user
@@ -73,7 +121,7 @@ class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
             form.instance.author = current_user
             return super(CowCreate, self).form_valid(form)
         else:
-            return redirect('/coco/')
+            return redirect('/login/')
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.is_staff
 

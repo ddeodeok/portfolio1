@@ -17,10 +17,10 @@ class SensorID(models.Model):
 
 
 class Sensor(models.Model):
+    id = models.IntegerField(primary_key=True,unique=True)
     _id = models.CharField(max_length=50)
     sensor_ver = models.CharField(max_length=50)
     msg_ver = models.IntegerField()
-    sensor_ID = models.CharField(max_length=50)
     macAddr = models.CharField(max_length=50)
     battery = models.FloatField()
     temp = models.FloatField()
@@ -33,8 +33,10 @@ class Sensor(models.Model):
     time =  models.CharField(max_length=50)
     packetnum = models.IntegerField()
     kr_time =  models.CharField(max_length=50)
+    sensor_ID = models.CharField(max_length=50)
+    # sensor_ID_id = models.ForeignKey("SensorID", on_delete=models.SET_NULL, blank=True, null=True)
 
-    
+
     def __str__(self):
         return f'[{self.pk}]{self.sensor_ID}'
 
@@ -62,7 +64,7 @@ class Cow(models.Model):
     empyt_days = models.IntegerField(blank=True, null=True)
     birthday = models.CharField(max_length=50,blank=True, null=True)
 
-    SensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
+    SensorID_id = models.ForeignKey("SensorID", on_delete=models.SET_NULL,blank=True, null=True)
     
     def __str__(self):
         return f'[{self.pk}]{self.cow_num}'
@@ -74,3 +76,6 @@ class Event(models.Model):
     description = models.TextField()
    
     cid = models.ForeignKey(Cow, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'[{self.pk}]{self.event_time}'
