@@ -16,6 +16,10 @@ urlpatterns = [
     path('tables_farm1/', views.farm1),
     path('tables_farm2/', views.farm2),
     path('tables_farm3/', views.farm3),
+<<<<<<< HEAD
+=======
+    path('<int:pk>/', views.cow_detail)
+>>>>>>> bfbc94f6430148971d6f9eb81481b1860adc320a
     # path('create_post/', views.create_post, name='create_post'),
     # path('create/', views.create, name='create'),
 

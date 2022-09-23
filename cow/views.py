@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -6,6 +7,11 @@ from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.db.models import Q
 from .models import Cow, Sensor
+<<<<<<< HEAD
+=======
+from django.http import HttpResponse
+
+>>>>>>> bfbc94f6430148971d6f9eb81481b1860adc320a
 import logging
 
 # Create your views here.
@@ -125,6 +131,26 @@ class CowCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.is_staff
 
+# class CowDetail (DetailView):
+#     model = Cow
+#     template_name = 'cow/cow_detail.html'
+    
+#     def get(self, request):
+#         queryset = Cow.objects.all()
+#         return HTTPResponse({ 
+#             'cowds': queryset
+#         })
+   
+
+def cow_detail (request):
+    cowds = Cow.objects.order_by()
+    return render(
+        request,
+        'cow/cow_detail.html',
+        {
+            'cowds':cowds,
+        }
+    )
 
 # def create_post(request):
 #     return render(request, 'cow/create_cow.html')

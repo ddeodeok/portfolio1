@@ -9,18 +9,25 @@ import os
 from distutils.command.upload import upload
 
 class SensorID(models.Model):
-    sensor_serial = models.CharField(max_length=50, unique=True)
+    sensor_serial = models.CharField(max_length=50, unique=True, primary_key=True)
     sensor_ver = models.CharField(max_length=50)
 
     def __str__(self):
-        return f'[{self.pk}]{self.sensor_serial}'
+        return f'{self.sensor_serial}'
 
 
 class Sensor(models.Model):
+<<<<<<< HEAD
     id = models.IntegerField(primary_key=True,unique=True)
     _id = models.CharField(max_length=50)
     sensor_ver = models.CharField(max_length=50)
     msg_ver = models.IntegerField()
+=======
+    _id = models.CharField(max_length=50,primary_key=True,unique=True)
+    sensor_ver = models.CharField(max_length=50)
+    msg_ver = models.IntegerField()
+    sensor_ID = models.ForeignKey("SensorID", on_delete=models.SET_NULL, null=True)
+>>>>>>> bfbc94f6430148971d6f9eb81481b1860adc320a
     macAddr = models.CharField(max_length=50)
     battery = models.FloatField()
     temp = models.FloatField()
@@ -56,7 +63,7 @@ class Estrus(models.Model):
 
 class Cow(models.Model):
     # author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    cow_num = models.CharField(max_length=50,unique=True)
+    cow_num = models.CharField(max_length=50,unique=True,primary_key=True)
     group = models.CharField(max_length=50,default='new_cow')
     stats = models.CharField(max_length=50)
     carving_num = models.IntegerField(default= 0)
@@ -64,7 +71,11 @@ class Cow(models.Model):
     empyt_days = models.IntegerField(blank=True, null=True)
     birthday = models.CharField(max_length=50,blank=True, null=True)
 
+<<<<<<< HEAD
     SensorID_id = models.ForeignKey("SensorID", on_delete=models.SET_NULL,blank=True, null=True)
+=======
+    sensorID = models.ForeignKey("SensorID", on_delete=models.SET_NULL,blank=True, null=True)
+>>>>>>> bfbc94f6430148971d6f9eb81481b1860adc320a
     
     def __str__(self):
         return f'[{self.pk}]{self.cow_num}'
